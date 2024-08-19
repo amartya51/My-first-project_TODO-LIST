@@ -1,3 +1,4 @@
 .ignore
 # to_do.json
 ignore.txt
+__pycache__
