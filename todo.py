@@ -1,10 +1,10 @@
 from functions import *
 
-TODO_PATH = r'to_do.json'
+TODO_PATH = r'todo.json'
 
 def main(path):
-    todos = load_to_dos(path)
     while True:
+        todos = load_to_dos(path)
 
         print('_'*50)
         print('\nWhat do you want to do: ')
@@ -20,6 +20,7 @@ def main(path):
         elif choice == '2':
             task = input('Enter the task you want to add.  ')
             add_to_dos(task, todos)
+            save_to_dos(todos, path)
         elif choice == '3':
             while True:
                 wish = input('Do you want to see the list.(y/n)')
@@ -33,9 +34,9 @@ def main(path):
             choice = input('Enter the task number you want to remove.')
             try:
                 remove_to_dos(int(choice), todos)
+                save_to_dos(todos, path)
             except IndexError:
                 print('Your to-do list is empty.')
-            break
         elif choice == '4':
             break
         else:

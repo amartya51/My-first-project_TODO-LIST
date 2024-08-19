@@ -5,14 +5,15 @@ import json
 def load_to_dos(path):
     if os.path.exists(path):
         with open(path, 'r') as todo_load:
-            return json.load(todo_load)
+            to_do =json.load(todo_load)
+            return to_do
     return []
 
 # todosList = load_to_dos()            # Defines
 
 def save_to_dos(todosList, path):
-    with open(path, 'w') as todo_save:
-        json.dump(todosList, todo_save, indent=4)
+    with open(path, 'w') as _path:
+        json.dump(todosList, _path)
 
 def show_to_dos(todosList):
     if not todosList:
